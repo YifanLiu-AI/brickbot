@@ -1,0 +1,14 @@
+{
+  "geometry": "scene.json triangles, type 2 and conditional type 5 lines",
+  "palette_source": "bundled official LDConfig.ldr",
+  "water_depth_mm": 54.70586156433915,
+  "views": [
+    "finished",
+    "front",
+    "top-45",
+    "bottom",
+    "cutaway"
+  ],
+  "step_images": 9,
+  "parts_lists": 9
+}

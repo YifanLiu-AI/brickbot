@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {fileURLToPath} from 'node:url';
+import {apply} from '../plugin/packed-v3/package/index.mjs';
+const registered=new Map();
+apply({tools:{register(tool){registered.set(tool.name,tool)}}},{python:fileURLToPath(new URL('../.clean-wheel-v3/bin/python',import.meta.url))});
+assert.equal(registered.size,8);
+const call=(op,args)=>registered.get(`lego_${op}`).execute({request:JSON.stringify(args)},{});
+const found=await call('search',{query:'3001.dat'});assert(JSON.stringify(found).includes('3001'));
+const described=await call('describe',{part:'3001.dat'});assert.equal(described.status,'pass');
+const rooted=await call('root',{part:'91405'});assert.equal(rooted.status,'pass');
+const added=await call('add',{assembly:rooted.assembly,part:'3001',target:'base',target_stud:[0,0],anchor:[0,0],id:'brick'});assert.equal(added.status,'pass');
+const validated=await call('validate',{assembly:added.assembly});assert.equal(validated.status,'pass');
+console.log(JSON.stringify({status:'pass',archive:'dsh-plugin-ldraw-brick-engine-0.2.0.tgz',registered_tools:registered.size,operations:['search .dat','describe .dat','root','add','validate'],python:'clean-wheel-v3'}));

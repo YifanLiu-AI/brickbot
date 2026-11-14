@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "interior_mm": [
+    96.0,
+    96.0,
+    70.4
+  ],
+  "measured_inner_bounds_ldu": [
+    -120.0,
+    120.0,
+    -120.0,
+    120.0,
+    0.0,
+    -176.0
+  ],
+  "base_stud_count": 144,
+  "gross_ml": 648.8064,
+  "base_studs_displacement_ml": 4.169220176949628,
+  "conservative_capacity_ml": 644.6371798230504,
+  "target_ml": 500,
+  "required_minimum_ml": 550,
+  "fill_depth_for_500ml_mm": 54.70586156433915,
+  "assumption": "User-specified seamless and leak-free joins; ignores extra usable volume inside wall underside cavities",
+  "grips": "Two symmetric centered 4x8 plates on opposite Z sides, two rows seated below and capped above, two rows (16 mm) outside; cavity unobstructed; clutch/load unknown"
+}

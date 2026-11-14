@@ -1,0 +1,4 @@
+include README.md SKILL.md LICENSE
+recursive-include scripts *.py *.sh
+recursive-include tests *.py
+recursive-include src/brick_engine/data *

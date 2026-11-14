@@ -1,0 +1,1 @@
+{"name":"@sudo-yf/ldraw-brick-engine","version":"0.2.0","exports":"./index.mjs","publish":{"include":["index.mjs","README.md"]}}
