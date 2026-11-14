@@ -1,1 +1,1 @@
-{"name": "@shiyi/brickbot", "version": "0.2.1", "exports": "./index.mjs", "publish": {"include": ["index.mjs", "README.md"]}, "license": "MIT"}
+{"name": "@shiyi/brickbot", "version": "0.2.2", "exports": "./index.mjs", "publish": {"include": ["index.mjs", "README.md"]}, "license": "MIT"}

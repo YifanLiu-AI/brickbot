@@ -3,7 +3,7 @@ requires = ["setuptools>=75"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "brickbot"
-version = "0.2.1"
+version = "0.2.2"
 readme = "README.md"
 license = "MIT"
 description = "Geometry-derived LDraw rectangular brick assembly engine"

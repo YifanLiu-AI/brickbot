@@ -1,0 +1,1 @@
+{"status": "pass", "version": "0.2.2", "module": "/tmp/brickbot-0.2.2-wheel-check/lib/python3.12/site-packages/brick_engine/__init__.py", "parts": 109, "smoke_instances": 4, "reference_instances": 65, "collision": "E_COLLISION", "grouped_steps": 2}

@@ -5,3 +5,10 @@ __pycache__/
 *.egg-info/
 build/
 *.pyc
+.brickbot/
+evidence/v0.2.2-schema-failure/
+evidence/v0.2.2-wheel-rate-limit/
+evidence/v0.2.2/sessions/
+evidence/v0.2.2/workspace/
+evidence/v0.2.2/patch.json
+evidence/v0.2.2/settings.json

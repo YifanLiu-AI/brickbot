@@ -1,0 +1,25 @@
+已完成 **0.5 L 双耳取水杯的数字拼装交付件**，共 40 个乐高零件、6 组拼装步骤，几何校验通过。
+
+交付文件：
+
+- [三维拼装模型 model.mpd](/Users/a123/Desktop/CodexWorkspace/projects/20261114-2142-lego-water-v3/publish/ldraw-brick-engine/evidence/v0.2.2/workspace/deliverables/water-scoop-500ml/model.mpd)
+- [拼装说明 instructions.md](/Users/a123/Desktop/CodexWorkspace/projects/20261114-2142-lego-water-v3/publish/ldraw-brick-engine/evidence/v0.2.2/workspace/deliverables/water-scoop-500ml/instructions.md)
+- [零件清单 bom.csv](/Users/a123/Desktop/CodexWorkspace/projects/20261114-2142-lego-water-v3/publish/ldraw-brick-engine/evidence/v0.2.2/workspace/deliverables/water-scoop-500ml/bom.csv)
+- [验证报告 validation.json](/Users/a123/Desktop/CodexWorkspace/projects/20261114-2142-lego-water-v3/publish/ldraw-brick-engine/evidence/v0.2.2/workspace/deliverables/water-scoop-500ml/validation.json)
+
+杯体采用蓝色双层厚壁、白色平整内底、黄色杯沿和红色双侧握持耳，上下墙体交错搭接。
+
+| 项目 | 设计值 |
+|---|---:|
+| 内腔长 × 宽 | 96 × 96 mm |
+| 平底至杯口深度 | 64 mm |
+| 理论满口容量 | 589.824 mL |
+| 500 mL 对应水深 | 54.2535 mm |
+| 500 mL 时杯口余量 | 9.7465 mm |
+
+容量按你的“不漏水”假设计算：  
+\(96 × 96 × 54.2535 ≈ 500{,}000\ \text{mm}^3 = 0.5\ \text{L}\)。
+
+**使用方法：**将水取至内底上方约 54.25 mm，水平提起。黄色杯沿下缘对应约 501.35 mL，可作近似参照；如果要求准确的 500 mL，应首次用量杯校准并标记水位，不能把满杯当成 0.5 L。
+
+校验已确认零件连接、无碰撞及装配顺序通过。**承载能力尚未实测**：0.5 L 水约重 0.5 kg，实际提取时建议托住底部，双耳用于辅助握持。

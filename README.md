@@ -1,4 +1,4 @@
-# brickbot 0.2.1
+# brickbot 0.2.2
 
 LDraw 积木装配核心（非 LEGO 官方项目）
 
@@ -17,7 +17,7 @@ echo '{"op":"describe","part":"3001"}' | brickbot
 npx jsr add @shiyi/brickbot                                                     # DSH 插件
 ```
 
-插件未设置 `BRICK_ENGINE_PYTHON` 时自动用 `uvx` 调用本仓库 v0.2.1；需先装 [uv](https://docs.astral.sh/uv/)。旧命令名 `brick-engine` 仍可用。Release 附 wheel / sdist。包内含 catalog、真实网格、递归所需 LDraw 源文件和许可证。
+插件未设置 `BRICK_ENGINE_PYTHON` 时自动用 `uvx` 调用本仓库 v0.2.2；需先装 [uv](https://docs.astral.sh/uv/)。旧命令名 `brick-engine` 仍可用。Release 附 wheel / sdist。包内含 catalog、真实网格、递归所需 LDraw 源文件和许可证。
 
 ## 网格接口
 
@@ -91,9 +91,17 @@ engine.export(assembly, 'output')
 
 本次 **55 项测试通过**，含验收方 search 空格、×、.dat 归一化与 part .dat 后缀回归，以及边线递归变换、条件线同侧判断和深度遮挡测试。实际输出见 `evidence/pytest-v3.log`；重建与干净环境安装证据见 `evidence/build-package-v3.log`、`evidence/clean-wheel-v3.log`、`evidence/clean-sdist-v3.log`、`evidence/plugin-pack-v3.log`。原有 DSH 实际装配证据继续保留。
 
-## 真实 DSH 小装配
+## DSH 增量装配（0.2.2）
 
-插件使用本机 DSH 的 Cordis `ctx.tools.register`，注册 `lego_search/describe/root/propose/add/validate/order/export` 八个工具，直接调用同一 Python CLI。每个工具的 `request` 是省略 op 的 JSON 参数字符串；接口、错误码与 CLI 一致。
+插件提供 11 个结构化工具，参数直接是对象。先 `lego_catalog({})` 浏览全部类别，再 describe 选件、root 创建装配；后续只传 `assembly_id` 和增量连接参数。`lego_add_batch` 顺序安装一批零件，任何失败整批回滚；`lego_get` 读取当前实例。工具返回新增件、支撑来源和件数，不再返回整份装配或展开所有连接。
+
+Python 常驻进程只加载一次目录；装配保存到工作目录 `.brickbot/`，进程重启后句柄仍有效。`BRICK_ENGINE_STATE` 可指定状态目录。`lego_export` 先验证再输出模型、BOM、步骤与说明，默认写入 `.brickbot/exports/<assembly_id>`。完整工具参数见 `plugin/README.md`。命令行 `brickbot --serve` 也可使用逐行 JSON 和句柄；原单次 CLI/Python API 仍支持显式 assembly。
+
+真实验收启动器：`PYTHONPATH=src BRICK_ENGINE_PYTHON=/path/to/python python scripts/run_dsh_acceptance.py`。从授权 CC Switch SJ 存储读取凭据，仅注入 dsh 子进程环境；提示词原样为「用乐高零件拼装一个能一次取出 0.5 L 水的工具，暂时假定拼装后没有缝隙、不漏水。请完成最终交付件。」。证据写入 `evidence/v0.2.2/`。本次指定模型原样任务完成 40 件双耳取水杯：17 次调用、一个 Python 进程、6 组步骤，validate/export 均 pass；首个空类别请求失败后自行改分类继续，空类别现在也支持全目录。全套 61 passed / 1 skipped（未附带的旧 dsh 证据），细节见 `evidence/v0.2.2/README.md`。下面的小装配是历史结果。
+
+## 历史 DSH 小装配（0.2.0）
+
+插件使用本机 DSH 的 Cordis `ctx.tools.register`，注册 `lego_search/describe/root/propose/add/validate/order/export` 八个工具，直接调用同一 Python CLI。当时每个工具的 `request` 是省略 op 的 JSON 参数字符串；0.2.2 已由结构化参数和装配句柄替代。
 
 ```sh
 mkdir -p plugin/packed-v2

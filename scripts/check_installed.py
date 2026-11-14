@@ -6,7 +6,7 @@ import brick_engine
 from brick_engine import Engine,AssemblyError
 ROOT=Path(__file__).resolve().parents[1]
 assert Path(brick_engine.__file__).is_relative_to(Path(sys.prefix))
-assert importlib.metadata.version('brickbot')==brick_engine.__version__=='0.2.1'
+assert importlib.metadata.version('brickbot')==brick_engine.__version__=='0.2.2'
 e=Engine();assert len(e.catalog)==109
 assert e.search('Brick 2×4')==e.search('Brick 2 x 4')
 assert e.search('3001.dat')==e.search('3001')
@@ -25,4 +25,4 @@ e.export(a,export_dir)
 scene=json.loads((export_dir/'scene.json').read_text())
 assert all(m['edges'] and m['conditional_edges'] for m in scene['meshes'].values())
 reference=json.loads((ROOT/'reference/water-tool/assembly.json').read_text());assert e.validate(reference)['status']=='pass'
-print(json.dumps({'status':'pass','version':importlib.metadata.version('brickbot'),'module':brick_engine.__file__,'parts':len(e.catalog),'smoke_instances':len(a['instances']),'reference_instances':len(reference['instances']),'dsh_instances':len(dsh['instances']),'collision':'E_COLLISION','grouped_steps':2}))
+print(json.dumps({'status':'pass','version':importlib.metadata.version('brickbot'),'module':brick_engine.__file__,'parts':len(e.catalog),'smoke_instances':len(a['instances']),'reference_instances':len(reference['instances']),'collision':'E_COLLISION','grouped_steps':2}))

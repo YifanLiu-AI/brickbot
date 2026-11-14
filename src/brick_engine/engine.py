@@ -18,6 +18,20 @@ def rotation(angle):
 class Engine:
     def __init__(self,data=DATA):
         self.data=Path(data); self.catalog=json.loads((self.data/'catalog.json').read_text())
+    def list_catalog(self,category=None):
+        category=category.strip() or None if isinstance(category,str) else category
+        categories=sorted({p['category'] for p in self.catalog.values()})
+        if category is not None and category.lower() not in [c.lower() for c in categories]:
+            raise AssemblyError('E_INPUT','Unknown category',categories=categories)
+        groups={c:[] for c in categories if category is None or c.lower()==category.lower()}
+        for p in self.catalog.values():
+            if p['category'] in groups:
+                groups[p['category']].append(dict(id=p['id'],name=' '.join(p['name'].split()),
+                    size_studs=[p['grid']['column_range'][1]+1,p['grid']['row_range'][1]+1],
+                    body_height_mm=round(p['body_height']*.4,3),status=p['validation']['status']))
+        return dict(status='pass',total=sum(map(len,groups.values())),categories=groups,
+                    units='size_studs=[local X columns, local Z rows]; pitch=8 mm; body_height excludes top studs',
+                    next='Choose pass parts, describe their interfaces, root a base, then add by assembly_id and local grid connectors.')
     def search(self,query='',limit=30):
         norm=lambda t:' '.join(re.sub(r'(\d)\s*x\s*(?=\d)',r'\1 x ',str(t).lower().replace('.dat',' ').replace('×','x')).split())
         q=norm(query)

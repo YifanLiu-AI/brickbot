@@ -1,0 +1,8 @@
+{
+  "provider": "ccs-sj",
+  "model": "gpt-6-astra",
+  "endpoint": "https://aishenji.top",
+  "wire_api": "responses",
+  "plugin": "brickbot 0.2.2",
+  "credential_source": "authorized CC Switch storage; child environment only"
+}

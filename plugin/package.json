@@ -1,1 +1,1 @@
-{"name": "dsh-plugin-brickbot", "version": "0.2.1", "type": "module", "main": "index.mjs", "files": ["index.mjs", "README.md"], "peerDependencies": {"@deepseek-ai/dsh-tools": "*"}}
+{"name": "dsh-plugin-brickbot", "version": "0.2.2", "type": "module", "main": "index.mjs", "files": ["index.mjs", "README.md"], "peerDependencies": {"@deepseek-ai/dsh-tools": "*"}}
