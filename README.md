@@ -11,7 +11,7 @@ Python、JSON CLI、Skill 与真实 DSH 插件共用 `brick_engine.Engine`。
 ## 安装
 
 ```sh
-uvx brickbot@git+https://github.com/YifanLiu-AI/brickbot --help                # 免安装试用
+uvx git+https://github.com/YifanLiu-AI/brickbot --help                         # 免安装试用
 uv tool install git+https://github.com/YifanLiu-AI/brickbot                    # 安装 brickbot 命令
 echo '{"op":"describe","part":"3001"}' | brickbot
 npx jsr add @shiyi/brickbot                                                     # DSH 插件
