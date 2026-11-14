@@ -1,11 +1,11 @@
 ---
-name: ldraw-brick-engine
+name: brickbot
 description: Assemble geometry-verified rectangular LEGO parts with local integer grid connectors, validate, group instructions and export through CLI or DSH.
 ---
 
-# 乐高装配核心 0.2.0
+# 乐高装配核心 0.2.1
 
-安装 `dist/ldraw_brick_engine-0.2.0-py3-none-any.whl`；任意能执行命令的 agent 可调用 `brick-engine`。每次输入一个 JSON 对象，返回一个 JSON 对象；0=pass，10=unknown，其余为错误。109 件中 94 件完整验证、15 件 unknown，共 13,327 个已提取接口。
+安装 `dist/ldraw_brick_engine-0.2.1-py3-none-any.whl`；任意能执行命令的 agent 可调用 `brick-engine`。每次输入一个 JSON 对象，返回一个 JSON 对象；0=pass，10=unknown，其余为错误。109 件中 94 件完整验证、15 件 unknown，共 13,327 个已提取接口。
 
 1. `search` 找件；`describe` 查尺寸、网格和状态。只使用 `validation.status=pass` 的件。接口多于 64 个默认精简，强制精简用 `compact:true`；需要逐个接口证据时用 `compact:false`。
 2. `root` 创建地面基底。+Y 向下，1 LDU=0.4 mm。
@@ -20,7 +20,7 @@ description: Assemble geometry-verified rectangular LEGO parts with local intege
 
 ```sh
 python3 -m venv .lego-venv
-.lego-venv/bin/pip install /ABSOLUTE/PATH/core/dist/ldraw_brick_engine-0.2.0-py3-none-any.whl
+.lego-venv/bin/pip install /ABSOLUTE/PATH/core/dist/ldraw_brick_engine-0.2.1-py3-none-any.whl
 .lego-venv/bin/python <<'PY'
 import json, subprocess
 from pathlib import Path

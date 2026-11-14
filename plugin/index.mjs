@@ -1,10 +1,10 @@
 import {spawn} from 'node:child_process';
 import {appendFileSync} from 'node:fs';
-export const name='ldraw-brick-engine';
+export const name='brickbot';
 export const inject=['tools'];
 export function apply(ctx, config={}) {
   const python=config.python||process.env.BRICK_ENGINE_PYTHON;
-  const cmd=python?[python,'-m','brick_engine']:['uvx','--from','git+https://github.com/YifanLiu-AI/ldraw-brick-engine@v0.2.0','brick-engine'];
+  const cmd=python?[python,'-m','brick_engine']:['uvx','--from','git+https://github.com/YifanLiu-AI/brickbot@v0.2.1','brickbot'];
   const evidence=config.evidence||process.env.BRICK_ENGINE_EVIDENCE;
   const record=o=>{if(evidence)appendFileSync(evidence,JSON.stringify({time:new Date().toISOString(),...o})+'\n')};
   for(const op of ['search','describe','root','propose','add','validate','order','export']) {

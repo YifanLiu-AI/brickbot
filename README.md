@@ -1,4 +1,6 @@
-# LDraw 乐高装配核心 0.2.0
+# brickbot 0.2.1
+
+LDraw 积木装配核心（非 LEGO 官方项目）
 
 Python、JSON CLI、Skill 与真实 DSH 插件共用 `brick_engine.Engine`。
 
@@ -6,17 +8,16 @@ Python、JSON CLI、Skill 与真实 DSH 插件共用 `brick_engine.Engine`。
 
 参考取水工具 **65 件、9 个分组步骤**，几何验收 pass。内腔 **96×96×70.4 mm**，扣除底板凸点排水体积后 **644.637 mL**。LDraw 官方 71 浅灰、15 白色墙层与 72 深灰夹层，19 Tan 握持耳；相对两面中部各一块 4×8 握持耳，两排凸点夹在上下墙层之间，各有 16 个下接收连接和 16 个上凸点连接，外伸 16 mm，不侵入内腔。墙体转角逐层换向咬合。承载、夹持力、材料变形与实际防水仍 unknown，容量沿用用户指定的无缝不漏水假设。
 
-## 安装与检查
+## 安装
 
 ```sh
-cd /Users/a123/Desktop/CodexWorkspace/projects/20261114-2142-lego-water-v3/core
-python3 -m venv .lego-venv
-.lego-venv/bin/pip install dist/ldraw_brick_engine-0.2.0-py3-none-any.whl
-.lego-venv/bin/brick-engine --help
-printf '%s\n' '{"op":"describe","part":"91405"}' | .lego-venv/bin/brick-engine
+uvx brickbot@git+https://github.com/YifanLiu-AI/brickbot --help                # 免安装试用
+uv tool install git+https://github.com/YifanLiu-AI/brickbot                    # 安装 brickbot 命令
+echo '{"op":"describe","part":"3001"}' | brickbot
+npx jsr add @shiyi/brickbot                                                     # DSH 插件
 ```
 
-`dist/` 提供 wheel 与 sdist；`plugin/dsh-plugin-ldraw-brick-engine-0.2.0.tgz` 提供插件。包内含 catalog、真实网格、递归所需 LDraw 源文件和许可证。未发布 PyPI；原凭据检查未发现发布凭据。
+插件未设置 `BRICK_ENGINE_PYTHON` 时自动用 `uvx` 调用本仓库 v0.2.1；需先装 [uv](https://docs.astral.sh/uv/)。旧命令名 `brick-engine` 仍可用。Release 附 wheel / sdist。包内含 catalog、真实网格、递归所需 LDraw 源文件和许可证。
 
 ## 网格接口
 
