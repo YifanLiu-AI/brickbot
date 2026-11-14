@@ -1,0 +1,68 @@
+{
+  "processed": 109,
+  "selected": 109,
+  "interface_complete": 94,
+  "unknown": 15,
+  "interfaces_extracted": 13327,
+  "parts_with_extracted_interfaces": 106,
+  "failed": [],
+  "categories": {
+    "Brick": 38,
+    "Plate": 34,
+    "Tile": 21,
+    "Baseplate": 16
+  },
+  "unknown_reasons": {
+    "2653": [
+      "male count 0 differs from rectangular footprint 4"
+    ],
+    "3066": [
+      "validated receivers 2/4"
+    ],
+    "3067a": [
+      "validated receivers 2/6"
+    ],
+    "3067b": [
+      "validated receivers 2/6"
+    ],
+    "3754": [
+      "validated receivers 4/6"
+    ],
+    "4216": [
+      "validated receivers 0/2"
+    ],
+    "4217": [
+      "validated receivers 10/14",
+      "non-prismatic surfaces: midpoint collision layers approximate"
+    ],
+    "48288": [
+      "validated receivers 80/128"
+    ],
+    "6056": [
+      "validated receivers 0/4",
+      "non-prismatic surfaces: midpoint collision layers approximate"
+    ],
+    "6881a": [
+      "validated receivers 0/36"
+    ],
+    "6881b": [
+      "validated receivers 0/36"
+    ],
+    "6934": [
+      "validated receivers 0/18"
+    ],
+    "88393": [
+      "validated receivers 0/2"
+    ],
+    "925": [
+      "validated receivers 2/8"
+    ],
+    "925a": [
+      "male count 0 differs from rectangular footprint 8",
+      "validated receivers 2/8"
+    ]
+  },
+  "selection": "^(Brick|Plate|Tile|Baseplate)\\s+(\\d+)\\s+x\\s+(\\d+)(?:\\s+x\\s+(\\d+))?(.*)$",
+  "archive": "/Users/a123/Desktop/CodexWorkspace/projects/20261114-2142-lego-water-v3/core/reference/official.zip",
+  "source": "official complete.zip downloaded 2026-11-14; per-part release in catalog"
+}
