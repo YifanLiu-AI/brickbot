@@ -1,1 +1,1 @@
-{"name":"@shiyi/ldraw-brick-engine","version":"0.2.0","exports":"./index.mjs","publish":{"include":["index.mjs","README.md"]}}
+{"name": "@shiyi/ldraw-brick-engine", "version": "0.2.0", "exports": "./index.mjs", "publish": {"include": ["index.mjs", "README.md"]}, "license": "MIT"}
